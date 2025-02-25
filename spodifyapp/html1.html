@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css1.css">
+    <script src="./js1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="inner_container">
+            <i class='bx bxl-spotify' class="spotify-icon"></i>
+            <p class="spotify">
+                Log in to Spotify
+            </p>
+            <p class="google">
+                <i class='bx bxl-google' style='color:#ffffff' ></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Continue with Google
+            </p>
+            <p class="facebook">
+                <i class='bx bxl-facebook-circle' style='color:#1256af' ></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Continue with Facebook
+            </p>
+            <p class="apple">
+                <i class='bx bxl-apple' style='color:#ffffff' ></i>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Continue with Apple
+            </p>
+            <p class="phonenumber">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Continue with phone number  
+            </p>  
+        </div>
+        <div class="line"></div>
+        <div class="inner2_container">
+            <p class="inner1" >
+                Email or username
+            </p>
+            
+
+            <p class="inner-input1">
+                <!-- <input type="email" placeholder="Email or username" > -->
+                <input type="email" id="login-email" placeholder="Email or username" required>
+            </p>
+            <p id="error-message" style="color: red;"></p>
+            <p class="inner2">
+                Password
+            </p>
+            <p class="inner-input2">
+                <!-- <input type="password">&nbsp;&nbsp; -->
+                <input type="password" id="login-password" placeholder="Password" required>
+            </p>
+            <!-- <button class="lgn_btn">Log in</button> -->
+            <button class="lgn_btn" id="login-btn" onclick="saveUsername()">Log in</button>
+            <p class="forgotpassword"><a href="#">Forgot your password?</a></p>
+            <p class="snd_page">
+                Don't have an account? <a href="./html2.html">Sign up for Spodify</a>
+            </p>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>
+            This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a> and 
+            <a href="#">Terms of Service</a> apply.
+        </p>
+    </footer>
+    <script src="./js1.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotify Home Page</title>
+
+  <!-- Boxicons for icons -->
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./testing.css" />
+
+
+
+  <!-- Optional JS (if you have scripts) -->
+  <!-- <script src="DEMO66.JS" defer></script> -->
+   <script src="./DEMO66.JS"></script>
+</head>
+<body>
+  <!-- Header (Navigation Bar) -->
+  <header class="nav">
+    <div class="nav-left">
+      <!-- Spotify Logo Icon -->
+      <i class="bx bxl-spotify"></i>
+      <!-- Home Icon -->
+      <p class="icon_home">
+        <i class="bx bxs-home"></i>
+      </p>
+      <!-- Search Form -->
+      <form class="search-form">
+        <i class="bx bx-search-alt-2"></i>
+        <input type="text" placeholder="What do you want to play?" />
+      </form>
+    </div>
+    <div class="nav-right">
+      <i class="bx bx-down-arrow-circle"></i>
+      <p class="install">Install App</p>
+      <i class="bx bx-bell"></i>
+      <div class="profile">
+        <!-- Avatar or user initial goes here -->
+        <div class="userName"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout: Sidebar + Main Content -->
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="library-header">
+        <div class="library-info">
+          <i class="bx bx-library"></i>
+          <h2>Your Library</h2>
+        </div>
+        <div class="library-actions">
+          <i class="bx bx-plus"></i>
+          <i class="bx bx-right-arrow-alt"></i>
+        </div>
+      </div>
+
+      <nav class="library-nav">
+        <button class="active">Playlists</button>
+        <button class="active">Albums</button>
+        <button class="active">Artists</button>
+      </nav>
+
+      <div class="recent-section">
+        <i class="bx bx-search" style="color: #ffffff"></i>
+        <h3 class="recents">Recents&nbsp;&nbsp;</h3>
+        <i class="bx bx-menu"></i>
+      </div>
+
+      <div class="library-items">
+        <!-- Sample Library Items -->
+
+        <div class="library-item">
+          <img src="./likedicon.png" alt="Album cover" />
+          <div class="item-info">
+            <h3>Liked Songs</h3>
+            <p style="color: #47c243;">Playlists . 125 songs</p>
+          </div>
+        </div>
+
+        <div class="library-item">
+          <img src="./yourepisodesicon.png" alt="Album cover" />
+          <div class="item-info">
+            <h3>Your Episodes</h3>
+            <p style="color: #47c243;">Saved & downloaded episodes</p>
+          </div>
+        </div>
+
+          <div class="item-info" >
+            <div class="library-item" data-src="audio/All The Stars - Kendrick Lamar n SZA 320kbps(NewMrjatt.Com).mp3" >
+          <img src="./theweekendicon.png" alt="Album cover"/>
+            <h3>Save your tears</h3>
+            <p>The Weekend</p>
+          </div>
+        </div>
+
+        <div class="library-item" >
+          <img src="./sidebar1.png" alt="Album cover" />
+          <div class="item-info" data-src="audio/All The Stars - Kendrick Lamar n SZA 320kbps(NewMrjatt.Com).mp3" >
+            <h3>All The Stars</h3>
+            <p>Kendrick Lamar</p>
+          </div>
+        </div>
+
+        <div class="library-item" >
+          <img src="./sidebar2.png" alt="Album cover" />
+          <div class="item-info" data-src="audio\Willow-Smith-Wait-A-Minute-TikTok-Song-NaijaPrey.com.mp3">
+            <h3>Wait A Minute</h3>
+            <p>Willow Smith</p>
+          </div>
+        </div>
+
+        <div class="library-item" >
+          <img src="./sidebar4.png" alt="Album cover" />
+          <div class="item-info" data-src="audio/Not_Like_Us_FreeMp4Downloader.Com_.mp3" >
+            <h3>Not Like Us</h3>
+            <p>Kendrick Lamar</p>
+          </div>
+        </div>
+
+        <div class="library-item" >
+          <img src="./sidebar5.png" alt="Album cover" />
+          <div class="item-info" data-src="audio/Willow-Smith-Wait-A-Minute-TikTok-Song-NaijaPrey.com.mp3">
+            <h3>Money</h3>
+            <p>Blackpink</p>
+          </div>
+        </div>
+
+        <div class="library-item">
+          <img src="./shazamtrackicon.png" alt="Album cover" />
+          <div class="item-info" data-src="audio/Runtown-Mad-Over-You.mp3">
+            <h3>Omo</h3>
+            <p>Omah Lay</p>
+          </div>
+        </div>
+
+        <!-- <div class="library-item">
+          <img src="your-image-here.jpg" alt="Album cover" />
+          <div class="item-info">
+            <h3>Ozeba</h3>
+            <p>Rema</p>
+          </div>
+        </div> -->
+
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="top_info">
+            <ul>
+                <li>All</li>
+                <li>Music</li>
+                <li>Podcasts</li>
+            </ul>
+        </div>
+      <!-- "Made For Israel" Section -->
+      <section class="made-for">
+        <h2 class="section-title">Made For Israel</h2>
+        <div class="horizontal-scroll">
+          <!-- Item 1 -->
+          <div class="horizontal-item">
+            <img src="./icon1.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+          <!-- Item 2 -->
+          <div class="horizontal-item">
+            <img src="./icon2.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+          <!-- Item 3 -->
+          <div class="horizontal-item">
+            <img src="./icon3.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon4.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon5.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon6.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon7.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon9.png" alt="Playlist" />
+            <h3>Playlist Title</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- "Recommended Stations" Section -->
+      <!-- <section class="recommended">
+        <h2 class="section-title">Recommended Stations</h2>
+        <div class="horizontal-scroll">
+           Item 1 -->
+          <!-- <div class="horizontal-item">
+            <img src="your-image-here.jpg" alt="Station" />
+            <h3>Station Name</h3>
+          </div>
+           Item 2 -->
+          <!-- <div class="horizontal-item">
+            <img src="your-image-here.jpg" alt="Station" />
+            <h3>Station Name</h3>
+          </div>
+           Item 3 -->
+          <!-- <div class="horizontal-item">
+            <img src="your-image-here.jpg" alt="Station" />
+            <h3>Station Name</h3>
+          </div>
+        </div>
+      </section> --> 
+
+      <!-- "Today's Biggest Hits" Section -->
+      <section class="today-hits">
+        <h2 class="section-title">Today's Biggest Hits</h2>
+        <div class="horizontal-scroll">
+          <!-- Item 1 -->
+          <div class="horizontal-item">
+            <img src="./icon11.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          </div>
+          <!-- Item 2 -->
+          <div class="horizontal-item">
+            <img src="./icon12.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          </div>
+          <!-- Item 3 -->
+          <div class="horizontal-item"  data-src="spodifyapp/The-Weeknd-Save-Your-Tears-Live-(JustNaija.com).mp3">
+            <img src="./icon13.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon14.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon16.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon17.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon23.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          
+          </div>
+          <div class="horizontal-item">
+            <img src="./icon22.png" alt="Hit Song" />
+            <h3>Song Title</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- "Recently Played" Section -->
+      <section class="recently-played-home">
+        <h2 class="section-title">Recently Played</h2>
+        <div class="horizontal-scroll">
+          <!-- Item 1 -->
+          <div class="horizontal-item">
+            <img src="./likedicon.png" alt="Recently Played" />
+            <h3>Song/Album</h3>4
+          </div>
+          <!-- Item 2 -->
+          <div class="horizontal-item">
+            <img src="./theweekendicon.png" alt="Recently Played" />
+            <h3>The Weekend</h3>
+          </div>
+          <!-- Item 3 -->
+          <!-- <div class="horizontal-item">
+            <img src="your-image-here.jpg" alt="Recently Played" />
+            <h3>Song/Album</h3>
+          </div> -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+<footer class="player-bar">
+    <!-- Left section: Album art + Song info -->
+    <div class="player-left">
+      <img class="player-album-art" src="./likedicon.png" alt="Album art" />
+      <div class="player-song-info">
+        <h3 class="player-song-title">Song Title</h3>
+        <p class="player-artist-name">Artist Name</p>
+      </div>
+    </div>
+  
+    <!-- Center section: Controls + Progress bar -->
+    <div class="player-center">
+      <div class="player-controls">
+        <i class="bx bx-shuffle"></i>
+        <i class="bx bx-skip-previous"></i>
+        <i class="bx bx-play-circle"></i>
+        <i class="bx bx-skip-next"></i>
+        <i class="bx bx-repeat"></i>
+      </div>
+      <div class="player-progress">
+        <!-- Audio element hidden for custom controls -->
+        <audio src="Recording.m4a" class="audioPlayer"></audio>
+        <input type="range" class="progressBar" value="0" />
+      </div>
+    </div>
+  
+    <!-- Right section (optional) -->
+    <div class="player-right">
+      <!-- You can add volume controls or other icons here -->
+    </div>
+  </footer>
+  

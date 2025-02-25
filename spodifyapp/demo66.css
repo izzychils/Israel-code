@@ -1,0 +1,493 @@
+/* Define color variables similar to Spotify’s palette */
+:root {
+    --primary-color: #1db954;
+    --dark-bg: #121212;
+    --medium-dark: #181818;
+    --gray: #282828;
+    --light-grey: #b3b3b3;
+    --white: #ffffff;
+  }
+  
+  /* Reset & Base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: var(--dark-bg);
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--white);
+  }
+  
+  /* Navigation Bar */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--medium-dark);
+  }
+  
+  .nav-left,
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav .nav-left .bxl-spotify{
+    font-size: 2.5rem;
+  }
+  .nav .nav-right .bx-down-arrow-circle{
+    font-size: 1rem;
+  }
+
+
+
+  .nav .nav-left .bxs-home{
+    
+    font-size: 2rem;
+  }
+  .nav .nav-left .bx-search-alt-2{
+    font-size: 2rem;
+  }
+
+
+.nav .nav-right .bx-bell{
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
+.install{
+  padding-bottom: 0.3rem;
+}
+
+  .userName{
+    margin-left: 1.5rem;
+    background-color: rgb(78, 78, 231);
+    border-radius: 50%;
+    padding-top: 0.2rem;
+    padding-left: 0.85rem;
+    
+    /* padding-bottom: 0.9rem; */
+    width: 30px;
+    height: 30px;
+  }
+  /* .nav-left i, */
+  .nav-right i {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--light-grey);
+  }
+
+  .bxl-spotify{
+    font-size: 2rem;
+    padding-right: 45rem;
+  }
+  
+  .home-icon {
+    background-color: var(--light-grey);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+    background-color: var(--gray);
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 1rem;
+  }
+  
+  .search-form input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 200px;
+    color: var(--white);
+    margin-left: 0.1px;
+    font-size: 1rem;
+  }
+  
+  .premium-button {
+    background-color: var(--white);
+    color: var(--dark-bg);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+
+  /* .userName{
+    background-color: #ffffff;
+    border: 1px solid rgb(68, 67, 67);
+    border-radius: 20%;
+  } */
+  
+  /* Main Layout */
+  .main-container {
+    display: flex;
+    height: 60rem; 
+    margin-left: 2rem;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 400px;
+    background-color: rgb(35, 35, 35);
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 1rem;
+  }
+  
+  .library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .library-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .library-info i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  
+  .library-actions i {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .library-nav {
+    margin: 20px 0;
+  }
+  
+  .library-nav button {
+    background: none;
+    border: none;
+    color: var(--light-grey);
+    margin-right: 1px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  
+  .library-nav button.active {
+    color: var(--white);
+    background-color: rgb(59, 58, 58) ;
+  }
+  
+
+  .bx-search{
+    font-size: 1.2rem;
+    padding-right: 15.7rem;
+  }
+
+  .active{
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    /* margin-right: 15px; */
+    cursor: pointer;
+  }
+/* .bx-menu{
+  padding-left: 8rem;
+} */
+
+/* .recents{
+  padding-left: 4rem;
+} */
+  .recent-section {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--light-grey);
+  }
+  
+  .library-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .library-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .library-item:hover {
+    background-color: var(--gray);
+  }
+  
+  .library-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  .item-info h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .item-info p {
+    font-size: 0.8rem;
+    color: var(--light-grey);
+  }
+  
+  /* Content Area */
+  .content-area {
+    flex: 1;
+    background-color: var(--medium-dark);
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  /* Trending Section */
+  .trending-section {
+    margin-bottom: 30px;
+  }
+  
+  .trending-card {
+    display: flex;
+    background: linear-gradient(135deg, #1f1f1f, #141414);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+  
+  .trending-card img {
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  .card-details {
+    padding: 20px;
+    flex: 1;
+    position: relative;
+  }
+  
+  .card-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .album-type {
+    font-size: 0.8rem;
+    background-color: var(--gray);
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+  
+  .sponsored {
+    font-size: 0.7rem;
+    background-color: var(--dark-bg);
+    padding: 3px 8px;
+    border-radius: 20px;
+    color: var(--light-grey);
+    align-self: flex-start;
+  }
+  
+  .trending-title {
+    font-size: 1.8rem;
+    margin: 10px 0;
+  }
+  
+  .trending-artist {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: var(--light-grey);
+  }
+  
+  .trending-desc {
+    font-size: 0.9rem;
+    margin: 10px 0;
+    color: var(--light-grey);
+  }
+  
+  .card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .card-buttons button {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .card-buttons .play {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+  }
+  
+  .card-buttons .save {
+    background-color: var(--gray);
+    color: var(--white);
+  }
+  
+  /* Recents Section */
+  .recents-section {
+    margin-bottom: 30px;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .filter-buttons button {
+    background: none;
+    border: none;
+    color: var(--light-grey);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding-bottom: 5px;
+  }
+  
+  .filter-buttons button.active {
+    color: var(--white);
+    border-bottom: 2px solid var(--primary-color);
+  }
+  
+  .recents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  
+  .recent-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .recent-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .recent-item span {
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+  
+  /* Explore Section */
+  .explore-section {
+    margin-bottom: 30px;
+  }
+  
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .explore-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .explore-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .explore-item h4 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Recently Played Section */
+  .recently-played {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .played-item {
+    flex: 0 0 auto;
+  }
+  
+  .played-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Player Bar */
+  .player-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--medium-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+  }
+  
+  .player-controls i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--light-grey);
+    cursor: pointer;
+  }
+  
+  .player-progress {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+  }
+  
+  .audioPlayer {
+    display: none; /* Hide default audio controls */
+  }
+  
+  .progressBar {
+    width: 100%;
+  }
+  

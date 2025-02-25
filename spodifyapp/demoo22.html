@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotified</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="login-page" class="container">
+        <h2>Login to Spotified</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Enter your email" required>
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+            <p id="error-message" class="error"></p>
+            <button type="button" id="login-btn">Login</button>
+        </form>
+    </div>
+
+    <div id="home-page" class="container hidden">
+        <div class="navbar">
+            <h1>Spotified</h1>
+            <div class="profile">
+                <div class="profile-avatar"></div>
+                <h3 class="profile-name"></h3>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="sidebar">
+                <h2>Your Library</h2>
+                <ul>
+                    <li>Playlists</li>
+                    <li>Albums</li>
+                    <li>Artists</li>
+                    <li>Podcasts</li>
+                </ul>
+            </div>
+
+            <div class="main-content">
+                <h2>Welcome to Spotified!</h2>
+                <p>Discover your favorite music.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginPage = document.getElementById("login-page");
+            const homePage = document.getElementById("home-page");
+
+            const loginBtn = document.getElementById("login-btn");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            function isValidEmail(email) {
+                return /\S+@\S+\.\S+/.test(email);
+            }
+
+            function getRandomColor() {
+                const letters = "0123456789ABCDEF";
+                let color = "#";
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function createAvatar(username, element) {
+                if (!username || !element) return;
+
+                const firstLetter = username.trim()[0].toUpperCase();
+                element.textContent = firstLetter;
+                element.style.backgroundColor = getRandomColor();
+                element.style.color = "#fff";
+                element.style.display = "flex";
+                element.style.alignItems = "center";
+                element.style.justifyContent = "center";
+                element.style.width = "40px";
+                element.style.height = "40px";
+                element.style.borderRadius = "50%";
+                element.style.fontSize = "1.5rem";
+                element.style.fontWeight = "bold";
+            }
+
+            const storedUsername = localStorage.getItem("username");
+
+            if (storedUsername) {
+                loginPage.classList.add("hidden");
+                homePage.classList.remove("hidden");
+
+                const profileNameEl = document.querySelector(".profile-name");
+                const profileAvatarEl = document.querySelector(".profile-avatar");
+
+                if (profileNameEl) profileNameEl.textContent = storedUsername;
+                if (profileAvatarEl) createAvatar(storedUsername, profileAvatarEl);
+            }
+
+            if (loginBtn) {
+                loginBtn.addEventListener("click", function () {
+                    const email = document.getElementById("login-email").value.trim();
+                    const password = document.getElementById("login-password").value.trim();
+                    const errorMessage = document.getElementById("error-message");
+
+                    errorMessage.textContent = ""; 
+
+                    if (!email || !password) {
+                        errorMessage.textContent = "Please enter both email and password.";
+                        return;
+                    }
+
+                    if (!isValidEmail(email)) {
+                        errorMessage.textContent = "Please enter a valid email.";
+                        return;
+                    }
+
+                    const username = email.split("@")[0];
+
+                    localStorage.setItem("username", username);
+                    localStorage.setItem("userEmail", email);
+
+                    loginPage.classList.add("hidden");
+                    homePage.classList.remove("hidden");
+
+                    const profileNameEl = document.querySelector(".profile-name");
+                    const profileAvatarEl = document.querySelector(".profile-avatar");
+
+                    if (profileNameEl) profileNameEl.textContent = username;
+                    if (profileAvatarEl) createAvatar(username, profileAvatarEl);
+                });
+            }
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function () {
+                    localStorage.clear();
+                    loginPage.classList.remove("hidden");
+                    homePage.classList.add("hidden");
+                });
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 300px;
+            text-align: center;
+            background: #181818;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #1DB954;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: #181818;
+            align-items: center;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-avatar {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .content {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        .sidebar {
+            width: 150px;
+            background: #282828;
+            padding: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 5px 0;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
+
+</body>
+</html>

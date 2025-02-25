@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Spotify Login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css1.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, rgb(71, 71, 71), black);
+            font-family: 'Segoe UI';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(39, 39, 39));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 420px;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            color: aliceblue;
+        }
+
+        .inner_container {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgb(103, 103, 103);
+            padding-bottom: 2rem;
+        }
+
+        .inner_container .bxl-spotify {
+            font-size: 2.5rem;
+        }
+
+        .inner_container p {
+            border: 1px solid rgb(103, 103, 103);
+            padding: 0.5rem;
+            border-radius: 1.5rem;
+            font-weight: bold;
+            width: 100%;
+            max-width: 300px;
+            margin: 0.5rem auto;
+            text-align: center;
+        }
+
+        .inner_container p:hover {
+            border: 1px solid white;
+            scale: 1.05;
+        }
+
+        .inner2_container {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .inner2_container input {
+            width: 100%;
+            max-width: 300px;
+            height: 2.5rem;
+            background-color: transparent;
+            color: aliceblue;
+            border: 1px solid rgb(103, 103, 103);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .lgn_btn {
+            background-color: rgb(36, 143, 36);
+            padding: 0.7rem;
+            border-radius: 1.5rem;
+            font-weight: bold;
+            color: rgb(10, 10, 10);
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+            margin: 1.5rem auto 0;
+        }
+
+        .forgotpassword, .snd_page {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .forgotpassword a, .snd_page a {
+            color: aliceblue;
+        }
+
+        .footer {
+            background-color: rgb(28, 28, 28);
+            padding: 1.5rem;
+            text-align: center;
+            color: rgb(97, 103, 108);
+            width: 100%;
+        }
+
+        .footer p a {
+            color: rgb(97, 103, 108);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 1rem;
+            }
+
+            .inner_container p, .inner2_container input, .lgn_btn {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner_container">
+            <i class='bx bxl-spotify'></i>
+            <p class="spotify">Log in to Spotify</p>
+            <p class="google"><i class='bx bxl-google'></i> Continue with Google</p>
+            <p class="facebook"><i class='bx bxl-facebook-circle'></i> Continue with Facebook</p>
+            <p class="apple"><i class='bx bxl-apple'></i> Continue with Apple</p>
+            <p class="phonenumber">Continue with phone number</p>  
+        </div>
+        <div class="inner2_container">
+            <input type="email" placeholder="Email or username">
+            <input type="password" placeholder="Password">
+            <p class="lgn_btn">Log in</p>
+            <p class="forgotpassword"><a href="#">Forgot your password?</a></p>
+            <p class="snd_page">Don't have an account? <a href="#">Sign up for Spotify</a></p>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.</p>
+    </footer>
+</body>
+</html>

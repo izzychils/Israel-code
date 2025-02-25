@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            background: #1DB954;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #17a74b;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            background: #1DB954;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Signup Form -->
+    <div class="container" id="signup-form">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-username" placeholder="Username">
+        <input type="email" id="signup-email" placeholder="Email">
+        <input type="password" id="signup-password" placeholder="Password">
+        <button class="sign-up-btn">Create Account</button>
+        <p id="signup-error" style="color: red;"></p>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="container hidden" id="login-form">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email">
+        <input type="password" id="login-password" placeholder="Password">
+        <button class="login-btn">Login</button>
+        <p id="login-error" style="color: red;"></p>
+        <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+    </div>
+
+    <!-- Profile Page -->
+    <div class="container hidden" id="profile-page">
+        <h2>Profile</h2>
+        <div class="profile-pic" id="profile-pic"></div>
+        <h3 id="profile-username"></h3>
+        <p id="profile-email"></p>
+        <input type="text" id="edit-username" placeholder="New Username">
+        <input type="email" id="edit-email" placeholder="New Email">
+        <button class="edit-profile-btn">Edit Profile</button>
+        <p id="profile-error" style="color: red;"></p>
+        <button class="logout-btn" style="background: red;">Logout</button>
+    </div>
+
+    <script>
+        // Show login form
+        function showLogin() {
+            document.getElementById('signup-form').classList.add('hidden');
+            document.getElementById('login-form').classList.remove('hidden');
+        }
+
+        // Show signup form
+        function showSignUp() {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('signup-form').classList.remove('hidden');
+        }
+
+        // Function to store user data in local storage
+        function saveUserData(username, email, password) {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let user = { username, email, password };
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(user)); // Store current user
+        }
+
+        // Function to retrieve user data
+        function getUserData() {
+            return JSON.parse(localStorage.getItem('currentUser'));
+        }
+
+        // Function to check if a user exists
+        function checkUser(email, password) {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            return users.find(user => user.email === email && user.password === password);
+        }
+
+        // Function to display error messages
+        function displayError(elementId, message) {
+            document.getElementById(elementId).innerHTML = `<p style="color: red;">${message}</p>`;
+        }
+
+        // Event listener for sign-up form
+        document.querySelector('.sign-up-btn').addEventListener('click', function () {
+            let username = document.querySelector('#signup-username').value;
+            let email = document.querySelector('#signup-email').value;
+            let password = document.querySelector('#signup-password').value;
+
+            if (username && email && password) {
+                saveUserData(username, email, password);
+                showLogin();
+                displayError('signup-error', 'Account created successfully! Please log in.');
+            } else {
+                displayError('signup-error', 'Please fill in all fields.');
+            }
+        });
+
+        // Event listener for login form
+        document.querySelector('.login-btn').addEventListener('click', function () {
+            let email = document.querySelector('#login-email').value;
+            let password = document.querySelector('#login-password').value;
+            let user = checkUser(email, password);
+
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user)); // Store current user
+                document.getElementById('login-form').classList.add('hidden');
+                document.getElementById('profile-page').classList.remove('hidden');
+                loadProfile();
+            } else {
+                displayError('login-error', 'Invalid credentials. Please try again.');
+            }
+        });
+
+        // Function to generate profile picture with first letter of username
+        function generateProfilePicture(username) {
+            let firstLetter = username.charAt(0).toUpperCase();
+            document.querySelector('#profile-pic').innerText = firstLetter;
+        }
+
+        // Function to load profile data
+        function loadProfile() {
+            let user = getUserData();
+            if (user) {
+                document.querySelector('#profile-username').innerText = user.username;
+                document.querySelector('#profile-email').innerText = user.email;
+                generateProfilePicture(user.username);
+            }
+        }
+
+        // Event listener for editing profile
+        document.querySelector('.edit-profile-btn').addEventListener('click', function () {
+            let newUsername = document.querySelector('#edit-username').value;
+            let newEmail = document.querySelector('#edit-email').value;
+            let user = getUserData();
+
+            if (newUsername || newEmail) {
+                user.username = newUsername || user.username;
+                user.email = newEmail || user.email;
+                saveUserData(user.username, user.email, user.password);
+                localStorage.setItem('currentUser', JSON.stringify(user)); // Update current user
+                loadProfile();
+                displayError('profile-error', 'Profile updated successfully.');
+            } else {
+                displayError('profile-error', 'Please enter new details.');
+            }
+        });
+
+        // Event listener for logout
+        document.querySelector('.logout-btn').addEventListener('click', function () {
+            localStorage.removeItem('currentUser');
+            document.getElementById('profile-page').classList.add('hidden');
+            document.getElementById('login-form').classList.remove('hidden');
+        });
+    </script>
+
+</body>
+</html>

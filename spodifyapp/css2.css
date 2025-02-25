@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+body{
+    /* background: linear-gradient(to bottom, rgb(48, 46, 46), black); */
+    background-color: black;
+    color: aliceblue;
+    font-family: 'Segoe UI';
+}
+
+.container{
+    background-color: black;
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+    width: 42rem;
+    height: 53rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    margin: 2rem 45rem 3rem 39rem;
+    border-radius: 0.5rem;
+    color: aliceblue;
+}
+
+.bxl-spotify{
+    font-size: 2.5rem;
+    padding-bottom: 2rem;
+}
+
+.text1{
+    font-size: 2.5rem;
+    /* padding-bottom: 0.5rem; */
+    font-weight: bold;
+}
+
+.text2{
+    font-size: 2.5rem;
+    padding-bottom: 2rem;
+    font-weight: bold;
+}
+
+.email1{
+    padding-right: 11rem;
+    padding-bottom: 0.5rem;
+    /* font-size: 2rem; */
+    font-weight: bold;
+}
+
+.input input{
+    width: 16.5rem;
+    height: 2.5rem;
+    background-color: transparent;
+    color: aliceblue;
+    border: 1px solid rgb(103, 103, 103);
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.phonenumber{
+    margin-bottom: 0.05rem;
+}
+
+.phonenumber a{
+    color: rgb(13, 165, 13);
+    padding-right: 5rem;
+}
+
+.nxt{
+    margin-top: 1.5rem;
+    margin-right: 11.5rem;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(59, 164, 59);
+    padding: 0.5rem 7.8rem 0.7rem 7.8rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    margin-left: 11.5rem;
+    color: rgb(10, 10, 10);
+    /* margin-bottom: 1.5rem; */
+}
+
+.line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.1rem;
+    width: 17rem;
+    background: rgb(63, 63, 63);
+    margin: 2rem 0;
+}
+
+.line::before{
+    content: "or";
+    padding: 0 1rem;
+    margin: 0 1rem;
+    background: black;
+}
+
+.container .apple{
+    border: 1px solid rgb(103, 103, 103);
+    padding: 0.5rem 4rem 0.5rem 1rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    /* margin-bottom: 1.5rem; */
+}
+.container .apple:hover{
+    border: 1px solid white;
+    scale: 1.05;
+}
+
+.container .facebook{
+    border: 1px solid rgb(103, 103, 103);
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    /* background-color: aliceblue; */
+}
+.container .facebook:hover{
+    border: 1px solid white;
+    scale: 1.05;
+}
+.container .facebook .bxl-facebook-circle{
+    background-color: aliceblue;
+    border-radius: 50%;
+}
+.container .google{
+    border: 1px solid rgb(103, 103, 103);
+    padding: 0.5rem 3.8rem 0.5rem 1rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.container .google:hover{
+    border: 1px solid white;
+    scale: 1.05;
+}
+
+.line2{
+    height: 0.1rem;
+    width: 17rem;
+    background: rgb(178, 177, 177);
+    margin: 2rem 0;
+}
+
+.lgn_page{
+    font-size: 0.9rem;
+    margin-bottom: 13rem;
+    /* font-weight: bold; */
+    color: rgb(105, 104, 103);
+}
+
+.lgn_page a{
+    color: aliceblue;
+}
+
+.info1{
+    font-size: 0.7rem;
+}
+
+.info2{
+    font-size: 0.7rem;
+}
+
+.info2 a{
+    font-size: 0.7rem;
+    color: aliceblue;
+}
+

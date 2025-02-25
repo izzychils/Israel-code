@@ -1,0 +1,555 @@
+/* =============== COLOR VARIABLES =============== */
+:root {
+    --primary-color: #1db954;
+    --dark-bg: #000000;
+    --medium-dark: #181818;
+    --gray: #282828;
+    --light-grey: #b3b3b3;
+    --white: #ffffff;
+  }
+  
+  /* =============== RESET & BASE =============== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    
+  }
+  
+  body {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, content, footer */
+    height: 100vh;
+  }
+  
+  /* =============== NAV (HEADER) =============== */
+  .nav {
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--dark-bg);
+  }
+  
+  .nav-left,
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Spotify Icon */
+  .nav-left .bxl-spotify {
+    font-size: 2.5rem;
+    margin-right: 45rem;
+  }
+  
+  /* Home Icon */
+  .icon_home i {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+  
+  /* Search Form */
+  .search-form {
+    display: flex;
+    align-items: center;
+    background-color: var(--gray);
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  .search-form i {
+    font-size: 1.5rem;
+    color: var(--light-grey);
+    margin-right: 5px;
+  }
+  
+  .search-form input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 300px;
+    color: var(--white);
+    font-size: 1rem;
+  }
+  
+  /* Nav Right Icons */
+  .nav-right i {
+    font-size: 1rem;
+    color: var(--light-grey);
+    margin-right: 1rem;
+  }
+  
+  .install {
+    margin-right: 1rem;
+  }
+  
+  /* User Avatar */
+  .userName {
+    margin-left: 1rem;
+    background-color: rgb(78, 78, 231);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  /* =============== LAYOUT (SIDEBAR + MAIN) =============== */
+  .layout {
+    grid-row: 2;
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 420px;
+    background-color: rgb(16, 16, 16);
+    padding: 20px;
+    overflow-y: auto; /* independent scroll */
+    border: 1px solid black;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+  }
+  
+  /* Library Header */
+  .library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .library-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .library-info i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  
+  .library-actions i {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  /* Library Nav */
+  .library-nav {
+    margin: 20px 0;
+  }
+  
+  .library-nav button {
+    background: none;
+    border: none;
+    color: var(--light-grey);
+    margin-right: 1px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+  }
+  
+  .library-nav button.active {
+    color: var(--white);
+    background-color: var(--gray);
+    border-radius: 1rem;
+  }
+  
+  /* Recents in Sidebar */
+  .recent-section {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--light-grey);
+  }
+
+  .recent-section .bx-search{
+    padding-right: 17rem;
+  }
+
+  
+  .library-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .library-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .library-item:hover {
+    background-color: var(--gray);
+  }
+  
+  .library-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  .item-info h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .item-info p {
+    font-size: 0.8rem;
+    color: var(--light-grey);
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    overflow-y: auto; /* independent scroll */
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: 0.5rem;
+    background-color: #121212;
+    border-top-left-radius: 1rem;
+  }
+
+  .top_info ul{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    
+  }
+  
+  .top_info ul li{
+    list-style: none;
+    background-color: #464646;
+    padding: 8px;
+    border-radius: 2rem;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+
+  }
+  
+  /* Horizontal Scrolling Sections */
+  .horizontal-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem; /* Space for scrollbar */
+   
+  }
+  
+  .horizontal-item {
+    background-color: #121212;
+    width: 160px;
+    min-width: 160px;
+    border-radius: 8px;
+    padding: 10px;
+    flex-shrink: 0;
+    text-align: center;
+    transition: background-color 0.3s;
+    
+  }
+  
+  .horizontal-item:hover {
+    background-color: var(--medium-dark);
+  }
+  
+  .horizontal-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .horizontal-item h3 {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  
+  /* =============== PLAYER BAR (FOOTER) =============== */
+  .player-bar {
+    grid-row: 3;
+    background-color: var(--medium-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .player-controls i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--light-grey);
+    cursor: pointer;
+  }
+  
+  .player-progress {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+    margin-left: 1rem;
+  }
+  
+  .audioPlayer {
+    display: none; /* Hide default audio controls */
+  }
+  
+  .progressBar {
+    width: 100%;
+  }
+  
+  /* Optional: Scrollbar Styling for Horizontal Scrolls */
+  .horizontal-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  .horizontal-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--light-grey);
+    border-radius: 10px;
+  }
+  
+  /* Player Bar */
+.player-bar {
+    grid-row: 3;
+    background-color: var(--medium-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Left section: Album + Title/Artist */
+  .player-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .player-album-art {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .player-song-info h3,
+  .player-song-info p {
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  /* Center section: Controls + Progress Bar */
+  .player-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* let it stretch */
+  }
+  
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .player-controls i {
+    font-size: 1.5rem;
+    color: var(--light-grey);
+    cursor: pointer;
+  }
+  
+  /* Progress bar container */
+  .player-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%; /* Make the slider span the center section width */
+    max-width: 400px; /* optional max width */
+  }
+  
+  .audioPlayer {
+    display: none; /* Hide default audio controls */
+  }
+  
+  .progressBar {
+    width: 100%;
+  }
+  
+  /* Right section (optional) */
+
+  /* =============== RESPONSIVE STYLES =============== */
+
+/* 
+   1) Tablet or smaller (max-width: 768px)
+   - Sidebar becomes full width on its own row
+   - Main content on a separate row
+   - Possibly reduce nav and search bar widths
+*/
+
+/* ================================
+   RESPONSIVE STYLES
+   ================================ */
+
+/* Hide or transform sidebar & main nav on smaller screens */
+@media (max-width: 768px) {
+    /* 
+      A) Stack the layout vertically: 
+         - The sidebar either collapses or moves above main content.
+    */
+    .layout {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      border-radius: 0;
+      border: none;
+    }
+  
+    .main-content {
+      margin-left: 0;
+      border-top-left-radius: 0;
+    }
+  
+    /* 
+      B) Top nav adjustments 
+         (If you keep the top nav visible on tablet)
+    */
+    .nav-left .bxl-spotify {
+      margin-right: 1rem; 
+    }
+    .search-form input {
+      width: 150px; 
+    }
+  
+    /* 
+      C) Player bar remains fixed at bottom 
+         (We keep it, but it might overlap the bottom nav if you add one.)
+    */
+    .player-bar {
+      padding: 10px;
+    }
+  }
+  
+  /* Mobile: narrower screens, replicate Spotify-like mobile layout */
+  @media (max-width: 480px) {
+    /* 
+      1) Optionally hide the desktop nav 
+         if you introduced a bottom nav
+    */
+    .nav.nav-desktop {
+      display: none;
+    }
+  
+    /* 
+      2) Show the bottom nav if you created one
+    */
+    .nav-bottom-mobile {
+      display: block; /* default is none, so we override here */
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: var(--medium-dark);
+      z-index: 999; /* Above other elements */
+    }
+    .nav-bottom-mobile ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+    }
+    .nav-bottom-mobile li {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--light-grey);
+      font-size: 0.8rem;
+    }
+    .nav-bottom-mobile li i {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+    }
+  
+    /*
+      3) The top nav (if you keep it) or 
+         your existing layout further shrinks
+    */
+    .sidebar {
+      display: none; /* Often hidden on mobile, or make collapsible */
+    }
+  
+    /* 
+      4) The main-content takes full width 
+    */
+    .main-content {
+      margin-left: 0;
+      border-top-left-radius: 0;
+      width: 100%;
+    }
+  
+    /* 
+      5) Library items, images, etc. 
+    */
+    .library-item img {
+      width: 40px;
+      height: 40px;
+    }
+    .library-item h3 {
+      font-size: 0.9rem;
+    }
+  
+    /*
+      6) Player bar might need extra bottom padding 
+         if you have a bottom nav
+    */
+    .player-bar {
+      bottom: 50px; /* Sit above the bottom nav, if you have one at bottom: 0 */
+      padding: 5px;
+    }
+  
+    /* 
+      7) Player album art & icons smaller 
+    */
+    .player-album-art {
+      width: 40px;
+      height: 40px;
+    }
+    .player-controls i {
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
+    .search-form input {
+      width: 100px; 
+    }
+  }
+  
+  
+  
